@@ -15,7 +15,6 @@ def dashboard(request):
     status = request.GET.get("status")
     due_from = request.GET.get("due_from")
     due_to = request.GET.get("due_to")
-
     if status:
         followups = followups.filter(status=status)
 
