@@ -33,8 +33,8 @@ SETUP INSTRUCTIONS
 
 1. Clone repository
 
-git clone <your_repo_url>
-cd clinic_tracker
+git clone https://github.com/AarushSrivatsa/Clinic_Tracker.git
+cd Clinic_Tracker
 
 2. Create virtual environment
 
