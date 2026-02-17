@@ -6,7 +6,7 @@ This project demonstrates practical Django skills including data modeling, authe
 
 ---
 
-FEATURES
+## FEATURES
 
 - Clinic and user management
 - Follow-up creation and tracking
@@ -20,7 +20,7 @@ FEATURES
 
 ---
 
-TECH STACK
+## TECH STACK
 
 - Python 3.13
 - Django 6.x
@@ -29,38 +29,49 @@ TECH STACK
 
 ---
 
-SETUP INSTRUCTIONS
+## SETUP INSTRUCTIONS
 
-1. Clone repository
+### 1. Clone repository
 
+```bash
 git clone https://github.com/AarushSrivatsa/Clinic_Tracker.git
 cd Clinic_Tracker
+```
 
-2. Create virtual environment
+### 2. Create virtual environment
 
+```bash
 python -m venv .venv
 source .venv/bin/activate
+```
 
-3. Install dependencies
+### 3. Install dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-4. Setup MySQL database
+### 4. Setup MySQL database
 
+```bash
 sudo mysql
+```
 
 Run inside MySQL:
 
+```sql
 CREATE DATABASE clinic_tracker;
 CREATE USER 'clinic_user'@'localhost' IDENTIFIED BY 'password123';
 GRANT ALL PRIVILEGES ON clinic_tracker.* TO 'clinic_user'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
+```
 
-5. Configure settings.py
+### 5. Configure settings.py
 
-Open clinic_tracker/settings.py and set:
+Open `clinic_tracker/settings.py` and set:
 
+```python
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -71,26 +82,32 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+```
 
-6. Run migrations
+### 6. Run migrations
 
+```bash
 python manage.py makemigrations
 python manage.py migrate
+```
 
-7. Create superuser
+### 7. Create superuser
 
+```bash
 python manage.py createsuperuser
+```
 
-8. Run server
+### 8. Run server
 
+```bash
 python manage.py runserver
+```
 
-Open browser:
-http://127.0.0.1:8000/admin
+Open browser: `http://127.0.0.1:8000/admin`
 
 ---
 
-CREATING CLINIC AND USERPROFILE
+## CREATING CLINIC AND USERPROFILE
 
 1. Go to Admin panel
 2. Create a Clinic
@@ -98,36 +115,47 @@ CREATING CLINIC AND USERPROFILE
 
 ---
 
-RUNNING CSV IMPORT
+## RUNNING CSV IMPORT
 
+```bash
 python manage.py import_followups --csv sample.csv --username your_username
+```
 
 Example output:
+```
 Created: 20, Skipped: 0
+```
 
 ---
 
-RUNNING TESTS
+## RUNNING TESTS
 
+```bash
 python manage.py test
+```
 
 Expected output:
+```
 Ran 5 tests OK
+```
 
 ---
 
-PUBLIC FOLLOW-UP ACCESS
+## PUBLIC FOLLOW-UP ACCESS
 
 Each follow-up has a public link:
 
+```
 http://127.0.0.1:8000/p/<public_token>/
+```
 
 This displays instructions and logs visit in PublicViewLog.
 
 ---
 
-PROJECT STRUCTURE
+## PROJECT STRUCTURE
 
+```
 clinic_tracker/
     clinic_tracker/
     followups/
@@ -141,10 +169,11 @@ clinic_tracker/
     sample.csv
     requirements.txt
     README.md
+```
 
 ---
 
-SECURITY FEATURES
+## SECURITY FEATURES
 
 - Login required for dashboard
 - Clinic-level access control
@@ -154,15 +183,15 @@ SECURITY FEATURES
 
 ---
 
-MANAGEMENT COMMAND
+## MANAGEMENT COMMAND
 
-import_followups
+**import_followups**
 
 Imports follow-ups safely from CSV.
 
 ---
 
-TESTS INCLUDED
+## TESTS INCLUDED
 
 - clinic_code generation
 - public_token generation
@@ -172,12 +201,6 @@ TESTS INCLUDED
 
 ---
 
-AUTHOR
+## AUTHOR
 
 Aarush Srivatsa
-
----
-
-ASSIGNMENT COMPLETION STATUS
-
-All core requirements completed.
