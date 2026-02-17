@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create FollowUp</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: #161b22;
+            padding: 32px;
+            width: 420px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+        }
+
+        h2 {
+            margin: 0 0 24px 0;
+            font-weight: normal;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 13px;
+            color: #7d8590;
+            margin-bottom: 6px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #e6edf3;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2ea043;
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        button {
+            padding: 8px 18px;
+            background: #238636;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background: #2ea043;
+        }
+
+        .back {
+            color: #7d8590;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back:hover {
+            color: #2ea043;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>Create FollowUp</h2>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        {{ form.patient_name.label_tag }}
+        {{ form.patient_name }}
+
+        {{ form.phone.label_tag }}
+        {{ form.phone }}
+
+        {{ form.language.label_tag }}
+        {{ form.language }}
+
+        {{ form.notes.label_tag }}
+        {{ form.notes }}
+
+        {{ form.due_date.label_tag }}
+        {{ form.due_date }}
+
+        <div class="buttons">
+            <button type="submit">Save</button>
+            <a href="/" class="back">Cancel</a>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
