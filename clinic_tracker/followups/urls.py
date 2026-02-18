@@ -6,5 +6,5 @@ urlpatterns = [
     path("create/", views.create_followup, name="create_followup"),
     path("p/<uuid:token>/", views.public_followup, name="public_followup"),
     path("done/<int:id>/", views.mark_done, name="mark_done"),
-
+    path("edit/<int:id>/", views.edit_followup, name="edit_followup"),
 ]

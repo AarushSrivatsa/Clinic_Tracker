@@ -138,6 +138,17 @@
             color: white;
         }
 
+        .actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.actions form {
+    margin: 0;
+}
+
+
     </style>
 
 </head>
@@ -184,6 +195,7 @@
                 {% for followup in followups %}
 
                 <tr>
+                    
 
                     <td>{{ followup.patient_name }}</td>
 
@@ -207,19 +219,24 @@
                         </a>
                     </td>
 
-                    <td class="actions">
+<td class="actions">
 
-                        {% if followup.status == "pending" %}
+    <a href="/edit/{{ followup.id }}/" class="btn">Edit</a>
 
-                        <form method="post" action="/done/{{ followup.id }}/">
+    {% if followup.status == "pending" %}
 
-                            {% csrf_token %}
+    <form method="post" action="/done/{{ followup.id }}/">
 
-                            <button class="btn btn-green">Mark Done</button>
+        {% csrf_token %}
 
-                        </form>
+        <button class="btn btn-green">Mark Done</button>
 
-                        {% endif %}
+    </form>
+
+    {% endif %}
+
+</td>
+
 
                     </td>
 
